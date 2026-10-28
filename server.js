@@ -286,7 +286,16 @@ async function migrateLegacyFiles() {
     });
     imported += 1;
   }
-  await controls.insertOne({ _id: 'legacy-files-v1', imported, completedAt: new Date() });
+  await controls.updateOne(
+  { _id: 'legacy-files-v1' },
+  {
+    $setOnInsert: {
+      imported,
+      completedAt: new Date()
+    }
+  },
+  { upsert: true }
+   );
   if (imported) console.log('Imported ' + imported + ' legacy file(s) into MongoDB. Local source files were left in place as a backup.');
 }
 
