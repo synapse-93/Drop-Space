@@ -1,12 +1,19 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
-  "functions": {
-    "api/[...path].js": {
-      "includeFiles": "public/**"
-    }
-  },
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api/$1" }
-  ]
+"$schema": "https://openapi.vercel.sh/vercel.json",
+"version": 2,
+"functions": {
+"api/[...path].js": {
+"includeFiles": "public/**"
+}
+},
+"rewrites": [
+{
+"source": "/api/:path*",
+"destination": "/api/:path*"
+},
+{
+"source": "/(.*)",
+"destination": "/index.html"
+}
+]
 }
