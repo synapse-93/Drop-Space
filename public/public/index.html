@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drop Space — Owner dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+  <main class="shell">
+  <header class="topbar"><div class="brand"><span class="brand-mark">↗</span><span class="brand-name">drop<span>space</span></span></div><div class="header-actions"><span class="local-badge"><i></i> Private workspace</span><button id="logout" class="small-button">Sign out</button></div></header>
+  <section class="hero"><div><p class="eyebrow">SIMPLE, SECURE FILE TRANSFER</p><h1>Sharing made<br><em>easy.</em></h1><p class="subhead">Send a file with one link. You decide how long it stays available.</p></div><div class="hero-art" aria-hidden="true"><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><div class="art-card"><span class="art-file">▤</span><span class="art-line"></span><span class="art-line short"></span><span class="art-arrow">↗</span></div><span class="art-dot"></span></div></section>
+    <section class="card upload-card">
+      <div class="section-title"><div><p class="eyebrow">START A SHARE</p><h2>Send something</h2></div><span class="limit">Up to 10 MB</span></div>
+      <form id="upload-form">
+        <label class="dropzone" id="dropzone" for="file-input"><span class="upload-icon">↑</span><strong id="file-label">Drop your file here or <span class="choose-text">browse</span></strong><span>Any file type · maximum 10 MB</span><input id="file-input" name="file" type="file" required></label>
+        <div class="form-row"><label for="expiry">Link expires after</label><select id="expiry" name="expiryHours"><option value="1">1 hour</option><option value="6">6 hours</option><option value="24" selected>24 hours</option><option value="72">3 days</option><option value="168">7 days</option><option value="custom">Choose date &amp; time</option></select><input id="custom-expiry" type="datetime-local" hidden><button class="button primary" type="submit">Upload &amp; create link</button></div>
+      </form>
+        <progress id="upload-progress" class="progress-track" max="100" value="0" hidden aria-label="Upload progress"></progress><p id="upload-message" class="message" role="status"></p>
+      <p class="security-note">Files are not virus-scanned. Only download files from people you trust.</p>
+    </section>
+    <section class="dashboard-section">
+      <div class="section-title dashboard-heading"><div><p class="eyebrow">YOUR SPACE</p><h2>Your shared files</h2><p class="security-status">Files are served as downloads and never executed by the app.</p><p id="time-zone-note" class="time-zone-note"></p></div><div class="quota-wrap"><span id="quota" class="quota"></span><progress id="quota-fill" class="quota-track" max="100" value="0" aria-label="Storage used"></progress></div></div>
+      <label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Find a file…" autocomplete="off"></label>
+      <div id="file-list" class="file-list"><div class="empty-state">Loading your files…</div></div>
+    </section>
+  <footer><span>✳</span> Your files stay yours. Revoke a link whenever you need.</footer>
+  </main>
+  <dialog id="expiry-dialog" class="expiry-dialog" aria-labelledby="expiry-dialog-title">
+    <div class="dialog-mark">◷</div>
+    <p class="eyebrow">SHARE SETTINGS</p>
+    <h2 id="expiry-dialog-title">Change link expiry</h2>
+    <p class="dialog-description">Choose when this share link should stop working. Times use your browser’s local timezone.</p>
+    <label for="edit-expiry">New expiry date and time</label>
+    <input id="edit-expiry" type="datetime-local" required>
+    <p id="expiry-error" class="dialog-error" role="alert"></p>
+    <div class="dialog-actions"><button id="cancel-expiry" class="small-button" type="button">Cancel</button><button id="save-expiry" class="button primary" type="button">Save expiry</button></div>
+  </dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>

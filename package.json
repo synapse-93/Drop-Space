@@ -1,0 +1,18 @@
+{
+  "name": "drop-space-file-sharing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private one-off file sharing with MongoDB persistence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check \"api/[...path].js\" && node --check public/app.js && node --check public/login.js && node --check public/share.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "mongodb": "^6.21.0"
+  }
+}

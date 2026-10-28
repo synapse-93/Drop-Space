@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — Drop Space</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/login.css">
+</head>
+<body class="login-body">
+  <main class="login-layout">
+    <section class="login-story">
+      <div class="brand"><span class="brand-mark">↗</span><span class="brand-name">drop<span>space</span></span></div>
+      <div class="login-copy"><p class="eyebrow">YOUR PRIVATE FILE SPACE</p><h1>Share files.<br><em>Keep control.</em></h1><p>Simple transfers, private links, and a dashboard that keeps you in charge.</p></div>
+      <div class="login-ornament" aria-hidden="true"><span class="login-ring ring-one"></span><span class="login-ring ring-two"></span><div class="login-file">▤</div><span class="login-spark">✳</span></div>
+      <p class="login-footnote">Private by design · Links expire when you say so</p>
+    </section>
+    <section class="login-panel">
+      <div class="login-panel-inner"><span class="login-lock">⌑</span><p class="eyebrow">YOUR ACCOUNT</p><h2 id="auth-title">Welcome back</h2><p class="login-hint" id="auth-hint">Sign in to manage your shared files.</p>
+        <form id="login-form" autocomplete="on">
+          <label for="username">Username</label><input id="username" name="username" type="text" autocomplete="username" minlength="3" maxlength="24" required autofocus>
+          <div class="password-label"><label for="password">Password</label></div><div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" required><button type="button" id="toggle-password" aria-label="Show password">Show</button></div>
+          <p id="login-error" class="login-error" role="alert"></p><p class="login-hint" id="password-note" hidden>Use at least 12 characters for your password.</p>
+          <button class="button primary login-submit" id="auth-submit" type="submit">Sign in <span>→</span></button><button class="text-button" id="auth-toggle" type="button">Need an account? Create one</button>
+        </form>
+        <div class="login-secure"><span>●</span> Protected owner session · Private to this device</div>
+      </div>
+    </section>
+  </main>
+  <script src="/login.js" defer></script>
+</body>
+</html>
